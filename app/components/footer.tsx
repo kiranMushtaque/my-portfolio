@@ -3,7 +3,7 @@
 
 import React from 'react';
 import { MdEmail } from 'react-icons/md';
-import { FaLinkedin, FaGithub, FaTwitter } from 'react-icons/fa'; // Importing additional social icons
+import { FaLinkedin,  FaTwitter } from 'react-icons/fa'; // Importing additional social icons
 import Link from 'next/link';
 
 const Footer = () => {
@@ -16,13 +16,13 @@ const Footer = () => {
           <div className="bg-gray-200 border-2 border-dashed rounded-xl w-12 h-12 flex items-center justify-center mr-2">
             <span className="text-xl font-bold text-gray-700">K</span>
           </div>
-          <span className="text-xl font-semibold">Kiran's Portfolio</span>
+          <span className="text-xl font-semibold">Kiran Portfolio</span>
         </Link>
 
         {/* Copyright Text */}
         <p className="text-sm text-gray-500 sm:ml-4 sm:pl-4 sm:border-l-2 sm:border-gray-200 sm:py-2 sm:mt-0 mt-4">
-          © {new Date().getFullYear()} Kiran's Portfolio - All rights reserved.
-        </p>
+          © {new Date().getFullYear()} Kiran Portfolio - All rights reserved.
+        
 
         {/* Social Media Icons */}
         <span className="inline-flex sm:ml-auto sm:mt-0 mt-4 justify-center sm:justify-start space-x-4">
