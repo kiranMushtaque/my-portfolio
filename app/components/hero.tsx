@@ -1,9 +1,5 @@
 
 
-
-
-
-
 "use client";
 import Typewriter from "typewriter-effect";
 
@@ -43,11 +39,7 @@ export default function Home(): JSX.Element {
                 Contact
               </button>
             </Link>
-            <Link href="#Projects">
-              <button className="px-5 py-2 bg-blue-500 text-white rounded-lg shadow-md hover:bg-blue-600 transition-colors duration-300">
-                My Projects
-              </button>
-            </Link>
+         
           </div>
         </div>
         {/* Image Content */}

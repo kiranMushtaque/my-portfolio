@@ -1,7 +1,8 @@
 
 
+
 'use client'
-import { useState } from "react";
+import { useState, useMemo } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { motion } from "framer-motion";
@@ -9,13 +10,12 @@ import { motion } from "framer-motion";
 const ProjectGallery = () => {
   const [selectedCategory, setSelectedCategory] = useState<string>("all");
 
-  const projects = [
+  const projects = useMemo(() => [
     {
       id: 1,
       title: "Calculator",
       category: "tools",
-      description:
-        "A sleek and efficient calculator built with HTML, JavaScript, and CSS.",
+      description: "A sleek and efficient calculator built with HTML, JavaScript, and CSS.",
       imageUrl: "/images/calutaor.PNG", 
       link: "https://quick-calc-gold.vercel.app/",
     },
@@ -23,8 +23,7 @@ const ProjectGallery = () => {
       id: 2,
       title: "Currency Converter",
       category: "tools",
-      description:
-        "A currency converter project using HTML, JavaScript, and CSS.",
+      description: "A currency converter project using HTML, JavaScript, and CSS.",
       imageUrl: "/images/curency convertor.PNG", 
       link: "https://quick-calc-gold.vercel.app/",
     },
@@ -32,8 +31,7 @@ const ProjectGallery = () => {
       id: 3,
       title: "Word Counter",
       category: "tools",
-      description:
-        "A word counter tool created with HTML, JavaScript, and CSS.",
+      description: "A word counter tool created with HTML, JavaScript, and CSS.",
       imageUrl: "/images/word countor.PNG", 
       link: "https://quick-calc-gold.vercel.app/",
     },
@@ -41,8 +39,7 @@ const ProjectGallery = () => {
       id: 4,
       title: "Number Guessing Game",
       category: "games",
-      description:
-        "A number guessing game built using HTML, JavaScript, and CSS.",
+      description: "A number guessing game built using HTML, JavaScript, and CSS.",
       imageUrl: "/images/number gussing game.PNG", 
       link: "https://quick-calc-gold.vercel.app/",
     },
@@ -50,8 +47,7 @@ const ProjectGallery = () => {
       id: 5,
       title: "Todo App",
       category: "productivity",
-      description:
-        "A functional and sleek Todo application using HTML, JavaScript, and CSS.",
+      description: "A functional and sleek Todo application using HTML, JavaScript, and CSS.",
       imageUrl: "/images/todo.PNG", 
       link: "https://quick-calc-gold.vercel.app/",
     },
@@ -75,8 +71,7 @@ const ProjectGallery = () => {
       id: 8,
       title: "Foodtuck",
       category: "web",
-      description:
-        "An e-commerce website for food lovers.",
+      description: "An e-commerce website for food lovers.",
       imageUrl: "/images/project9.PNG", 
       link: "https://hackathon-day-4.vercel.app/",
     },
@@ -84,8 +79,7 @@ const ProjectGallery = () => {
       id: 9,
       title: "King Burger",
       category: "web",
-      description:
-        "A modern e-commerce website.",
+      description: "A modern e-commerce website.",
       imageUrl: "/images/project8.PNG", 
       link: "https://milestone-3-e-commerce-website-project.vercel.app/",
     },
@@ -93,19 +87,20 @@ const ProjectGallery = () => {
       id: 10,
       title: "Blog Website",
       category: "web",
-      description:
-        "A dynamic blog with Next.js.",
+      description: "A dynamic blog with Next.js.",
       imageUrl: "/images/project7.PNG", 
       link: "https://milestone3-nextjs-blog.vercel.app/",
     },
-  ];
+  ], []);
 
   const categories = ["all", "tools", "web", "productivity", "games"];  
 
-  const filteredProjects =
-    selectedCategory === "all"
+  // Filter projects based on selected category
+  const filteredProjects = useMemo(() => {
+    return selectedCategory === "all"
       ? projects
       : projects.filter((project) => project.category === selectedCategory);
+  }, [selectedCategory, projects]);
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-gray-900 via-slate-900 to-zinc-900 py-20 px-4 sm:px-6 lg:px-8">
@@ -160,7 +155,7 @@ const ProjectGallery = () => {
                   src={project.imageUrl}
                   alt={project.title}
                   layout="fill"
-                  objectFit="cover"
+              style={{ objectFit: 'cover' }}
                   className="rounded-t-2xl transition-transform duration-500 ease-in-out group-hover:scale-110"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
@@ -204,17 +199,3 @@ const ProjectGallery = () => {
 };
 
 export default ProjectGallery;
-
-
-
-
-
-
-
-
-
-
-
-
-
-
